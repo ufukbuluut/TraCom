@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "382741454071",
+    "project_id": "tracom-7c85d",
+    "storage_bucket": "tracom-7c85d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382741454071:android:32db1102fb4490fed887f2",
+        "android_client_info": {
+          "package_name": "com.example.tracom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382741454071-f7o362qahg52s6io0sl28e796lv3bjap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuxbbL8c9R9UJFoqmjkUX43kXUqK4611g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382741454071-f7o362qahg52s6io0sl28e796lv3bjap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
