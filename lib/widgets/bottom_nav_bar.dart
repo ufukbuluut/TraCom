@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:tracom/screens/StudentProfile.dart';
 import 'package:tracom/screens/add_advert.dart';
-import 'package:tracom/screens/job_screen.dart';
 import 'package:tracom/screens/messages.dart';
 import 'package:tracom/screens/offers_view.dart';
 import 'package:tracom/user_state.dart';

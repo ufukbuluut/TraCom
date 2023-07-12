@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tracom/screens/extension.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../screens/offers_view.dart';
 
@@ -70,6 +72,12 @@ class _OfferWidgetState extends State<OfferWidget> {
                       ],
                     )),
                 Expanded(flex: 4, child: CardDetails().DetailButton()),
+                _contactBy(
+                    color: Colors.green,
+                    fct: () {
+                      _openWhatsAppChat();
+                    },
+                    icon: FontAwesome5.whatsapp),
               ],
             )),
             Expanded(flex: 0, child: CardDetails().avatarName(widget.ofTitle)),
@@ -97,4 +105,34 @@ Row RowUtility(String text, String iconPath) {
       ),
     )
   ]);
+}
+
+void _openWhatsAppChat() async {
+  //var url = 'https://wa.me/$phoneNumber?text=Hello';
+
+  //launchUrlString(url);
+  launchUrl(
+    Uri.parse("https://api.whatsapp.com/send/?phone=$phoneNumber"),
+    mode: LaunchMode.externalNonBrowserApplication,
+  );
+}
+
+Widget _contactBy(
+    {required Color color, required Function fct, required IconData icon}) {
+  return CircleAvatar(
+    backgroundColor: color,
+    radius: 25,
+    child: CircleAvatar(
+      radius: 23,
+      backgroundColor: Colors.white,
+      child: IconButton(
+          onPressed: () {
+            fct();
+          },
+          icon: Icon(
+            icon,
+            color: color,
+          )),
+    ),
+  );
 }

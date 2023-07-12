@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tracom/screens/TouristProffile.dart';
-import 'package:tracom/screens/job_screen.dart';
 import 'package:tracom/screens/login_screen.dart';
 import 'package:tracom/screens/offers_view.dart';
 

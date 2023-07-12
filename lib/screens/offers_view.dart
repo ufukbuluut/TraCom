@@ -125,6 +125,7 @@ class ProjectStrings {
   final String appTitle = "Adverts";
   final String appTitle2 = "Add Advert";
   final String appTitle3 = "Profile";
+  final String appTitle4 = "Messages";
   final String locationIcon = "img/location.png";
   final String dateIcon = "img/date.png";
 }
@@ -185,7 +186,6 @@ class CardDetails {
 
   CircleAvatar avatarImage(String imagePath) {
     return CircleAvatar(
-      
       backgroundImage: CardDetails().avatarimage(imagePath),
     );
   }

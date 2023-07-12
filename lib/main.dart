@@ -1,13 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tracom/LoginPage/login_screen.dart';
-import 'package:tracom/screens/login_screen.dart';
-import 'package:tracom/screens/offers_view.dart';
-import 'package:tracom/screens/register_screen.dart';
-import 'package:tracom/screens/student_register_screen.dart';
-import 'package:tracom/screens/student_register_screen2.dart';
-import 'package:tracom/screens/welcome_page.dart';
-import 'package:tracom/screens/welcome_page_student.dart';
-import 'package:tracom/screens/welcome_page_tourist.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:tracom/user_state.dart';
 
@@ -24,8 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: _initialization,
-        builder: (context, snapshot) 
-        {
+        builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const MaterialApp(
               home: Scaffold(
@@ -62,7 +52,6 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(primarySwatch: Colors.blue),
             home: UserState(),
           );
-        }
-        );
+        });
   }
 }

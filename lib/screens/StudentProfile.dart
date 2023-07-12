@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tracom/widgets/AppText.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../Services/global_variables.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'add_advert.dart';
 import 'offers_view.dart';
@@ -242,10 +244,9 @@ class _StackTopState extends State<StackTop> {
                   color: ProjectColors.ScaffoldBackground,
                   width: widget.deviceWidth * 3,
                 ),
-                image: DecorationImage(
-                    image: NetworkImage(widget.imgUrl == null
-                        ? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-                        : widget.imgUrl))),
+                image: DecorationImage(image: NetworkImage(//widget.imgUrl == null
+                    //? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                    widget.imgUrl))),
             height: widget.deviceHeight * 99,
             width: widget.deviceWidth * 100,
           ),
@@ -316,8 +317,7 @@ class Comments extends StatelessWidget {
                 child: Column(
               children: [
                 CommentsContainer(deviceHeight: deviceHeight),
-                CommentsContainer(deviceHeight: deviceHeight),
-                CommentsContainer(deviceHeight: deviceHeight),
+                CommentsContainer2(deviceHeight: deviceHeight),
                 CommentsContainer(deviceHeight: deviceHeight),
               ],
             )),
@@ -339,13 +339,105 @@ class CommentsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(deviceHeight * 8),
-        color: Color.fromARGB(255, 1, 180, 180),
-      ),
-      margin: EdgeInsets.all(deviceHeight * 6),
-      height: deviceHeight * 62,
-    );
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(deviceHeight * 8),
+          color: ColorUtility().maincolor,
+        ),
+        margin: EdgeInsets.all(deviceHeight * 6),
+        height: deviceHeight * 62,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.white),
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://pbs.twimg.com/media/Edw83IZXYAAOyfZ?format=jpg&name=large'))),
+              ),
+            ),
+            const SizedBox(
+              width: 6,
+            ),
+            Flexible(
+              flex: 5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Jhon Johnson',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  AppText(
+                      text:
+                          'Thank you for being able to have such an experience for one day :)',
+                      size: 14)
+                ],
+              ),
+            )
+          ],
+        ));
+  }
+}
+
+class CommentsContainer2 extends StatelessWidget {
+  const CommentsContainer2({
+    Key? key,
+    required this.deviceHeight,
+  }) : super(key: key);
+
+  final double deviceHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(deviceHeight * 8),
+          color: Color.fromARGB(255, 1, 180, 180),
+        ),
+        margin: EdgeInsets.all(deviceHeight * 6),
+        height: deviceHeight * 62,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.blueGrey),
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://pbs.twimg.com/media/FajkIp8XgAA_ceL?format=jpg&name=medium'))),
+              ),
+            ),
+            const SizedBox(
+              width: 6,
+            ),
+            Flexible(
+              flex: 5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Ali Demir',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  AppText(text: 'Awesome Day :)', size: 16)
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }
 
@@ -377,11 +469,8 @@ class LanguageDetails extends StatelessWidget {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              LanguageContainer(deviceHeight: deviceHeight),
-              LanguageContainer(deviceHeight: deviceHeight),
-              LanguageContainer(deviceHeight: deviceHeight),
-              LanguageContainer(deviceHeight: deviceHeight),
-              LanguageContainer(deviceHeight: deviceHeight),
+              LanguageContainer3(deviceHeight: deviceHeight),
+              LanguageContainer2(deviceHeight: deviceHeight),
               LanguageContainer(deviceHeight: deviceHeight),
             ],
           )),
@@ -546,13 +635,148 @@ class LanguageContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(deviceHeight * 8.0),
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(deviceHeight * 8),
-          color: Color.fromARGB(255, 200, 40, 40),
-        ),
-        height: deviceHeight * 50,
-        child: ListTile(),
-      ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(deviceHeight * 8),
+            color: ColorUtility().maincolor,
+          ),
+          margin: EdgeInsets.all(deviceHeight * 6),
+          height: deviceHeight * 62,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      shape: BoxShape.rectangle,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://storage.needpix.com/rsynced_images/colors-of-england.jpg'))),
+                ),
+              ),
+              const SizedBox(
+                width: 6,
+              ),
+              Flexible(
+                flex: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [AppText(text: 'English', size: 18)],
+                ),
+              )
+            ],
+          )),
+    );
+  }
+}
+
+class LanguageContainer2 extends StatelessWidget {
+  const LanguageContainer2({
+    Key? key,
+    required this.deviceHeight,
+  }) : super(key: key);
+
+  final double deviceHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(deviceHeight * 8.0),
+      child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(deviceHeight * 8),
+            color: ColorUtility().maincolor,
+          ),
+          margin: EdgeInsets.all(deviceHeight * 6),
+          height: deviceHeight * 62,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      shape: BoxShape.rectangle,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_France_%282000_World_Factbook%29.svg/1200px-Flag_of_France_%282000_World_Factbook%29.svg.png'))),
+                ),
+              ),
+              const SizedBox(
+                width: 6,
+              ),
+              Flexible(
+                flex: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [AppText(text: 'French', size: 18)],
+                ),
+              )
+            ],
+          )),
+    );
+  }
+}
+
+class LanguageContainer3 extends StatelessWidget {
+  const LanguageContainer3({
+    Key? key,
+    required this.deviceHeight,
+  }) : super(key: key);
+
+  final double deviceHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(deviceHeight * 8.0),
+      child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(deviceHeight * 8),
+            color: ColorUtility().maincolor,
+          ),
+          margin: EdgeInsets.all(deviceHeight * 6),
+          height: deviceHeight * 62,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                flex: 1,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      shape: BoxShape.rectangle,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://www.bayspor.com/Uploads/UrunResimleri/B-2012-Alpaka-Turk-Bayragi-100x150-4fa7.png'))),
+                ),
+              ),
+              const SizedBox(
+                width: 6,
+              ),
+              Flexible(
+                flex: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [AppText(text: 'Turkish', size: 18)],
+                ),
+              )
+            ],
+          )),
     );
   }
 }

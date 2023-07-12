@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tracom/screens/TouristProffile.dart';
 import 'package:tracom/screens/login_screen.dart';
+import 'package:tracom/user_state.dart';
 import 'package:tracom/widgets/AppText.dart';
 import 'package:tracom/widgets/AppText2.dart';
 import 'package:tracom/widgets/ReUsableButton.dart';
@@ -186,7 +187,7 @@ class _RegisterScreenState extends State<RegisterScreen>
             .child('$_uid.jpg');
         await ref.putFile(imageFile!);
         imageUrl = await ref.getDownloadURL();
-        FirebaseFirestore.instance.collection('tourist').doc(_uid).set({
+        FirebaseFirestore.instance.collection('users').doc(_uid).set({
           'id': _uid,
           'name': _fullNameController.text,
           'lastName': _lastNameController.text,
@@ -199,7 +200,7 @@ class _RegisterScreenState extends State<RegisterScreen>
         // ignore: use_build_context_synchronously
         Navigator.canPop(context)
             ? Navigator.push(
-                context, MaterialPageRoute(builder: (context) => LoginScreen()))
+                context, MaterialPageRoute(builder: (context) => UserState()))
             : null;
       } catch (error) {
         setState(() {
@@ -431,7 +432,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                     child: TextFormField(
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () => FocusScope.of(context)
-                          .requestFocus(_locationFocusNode),
+                          .requestFocus(_phoneNumberFocusNode),
                       keyboardType: TextInputType.name,
                       controller: _locationController,
                       validator: (value) {
@@ -444,6 +445,38 @@ class _RegisterScreenState extends State<RegisterScreen>
                       style: const TextStyle(color: Colors.black87),
                       decoration: const InputDecoration(
                           hintText: 'Please Enter Your Country',
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              borderSide: BorderSide(
+                                  width: 1.0, color: Color(0xffE0E0E0))),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            borderSide:
+                                BorderSide(width: 1.0, color: Colors.red),
+                          )),
+                    ),
+                  ),
+                  Container(
+                    width: 343,
+                    height: 60,
+                    margin: EdgeInsets.fromLTRB(33, 8, 14, 0),
+                    child: TextFormField(
+                      textInputAction: TextInputAction.next,
+                      onEditingComplete: () => FocusScope.of(context)
+                          .requestFocus(_phoneNumberFocusNode),
+                      keyboardType: TextInputType.name,
+                      controller: _phoneNumberController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please Enter Your Phone Number';
+                        } else {
+                          return null;
+                        }
+                      },
+                      style: const TextStyle(color: Colors.black87),
+                      decoration: const InputDecoration(
+                          hintText: 'Please Enter Your Phone Number',
                           border: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(30)),
